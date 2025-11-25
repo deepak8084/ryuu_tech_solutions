@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* ===== Navbar Hover Style (Option A) ===== */
+.navbar-hover {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-hover:hover {
+  background: rgba(255, 255, 255);
+  color: black !important;
+}
+
+
+
+/* ---------- THEME COLORS ---------- */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 200, 5;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+/* ---------- DEFAULT BODY ---------- */
+body {
+  color: rgb(var(--foreground-rgb));
+  background: #0b0f16;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- HERO SECTION ---------- */
+.hero-section {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  width: 100%;
+  
+  background: radial-gradient(
+    circle at center,
+    rgba(50, 199, 255, 0.35),   /* Light Blue Glow */
+    rgba(164, 92, 255, 0.35),   /* Light Purple Glow */
+    #0b0f16 85%                 /* Fade to dark */
+  );
+  overflow: hidden;
+}
+
+/* =======================================================
+   PHYSICS IMAGE + GLOW SYSTEM
+======================================================= */
+
+/* Center Image (physics object) */
+.center-shape {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;   /* In front of glow */
+}
+
+.shape-img {
+  width: clamp(80px, 20vw, 240px);
+  height: auto;
+  pointer-events: none;
+}
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+
+  color: white;
+  font-size: clamp(1.5rem, 4vw, 4rem);
+  font-weight: 700;
+  z-index: 10;   /* In front of image + glow */
+  pointer-events: none;
+}
